@@ -468,7 +468,7 @@ impl Render for Workspace {
             .child(self.db_switcher.clone())
             .child(div().flex_1().min_h(px(0.0)).child(self.sidebar.clone()));
 
-        // --- active panel ---
+        // active panel
         let mut body = div().flex().flex_1().min_h(px(0.0)).overflow_hidden();
         body = match tab {
             WorkspaceTab::Data => body.child(self.data.clone()),
@@ -476,7 +476,7 @@ impl Render for Workspace {
             WorkspaceTab::Structure => body.child(self.structure.clone()),
         };
 
-        // --- status bar ---
+        // status bar
         let mut status = StatusBar::new().left(Text::new(name).size(Size::Xs)).left(
             Badge::new(theme::type_label(&kind))
                 .size(Size::Sm)

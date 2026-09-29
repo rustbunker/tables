@@ -56,7 +56,7 @@ impl Sidebar {
         }
     }
 
-    // --- create / drop table -------------------------------------------------
+    // create / drop table
 
     pub(super) fn open_create_table(&mut self, cx: &mut Context<Self>) {
         let modal = cx.new(StructEditModal::create_table);

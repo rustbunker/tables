@@ -101,7 +101,7 @@ impl StructurePanel {
         }
     }
 
-    // --- edit entry points ---------------------------------------------------
+    // edit entry points
 
     fn open_edit(&mut self, modal: Entity<StructEditModal>, cx: &mut Context<Self>) {
         cx.subscribe(
@@ -253,7 +253,7 @@ impl StructurePanel {
         );
     }
 
-    // --- editable views ------------------------------------------------------
+    // editable views
 
     fn columns_view(&self, structure: &TableStructure, cx: &mut Context<Self>) -> gpui::AnyElement {
         let colors = crate::theme::palette(cx);

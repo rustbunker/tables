@@ -86,7 +86,7 @@ impl Host {
         self.col_types_cache.lock().unwrap().clear();
     }
 
-    // --- active-connection cursor -------------------------------------------
+    // active-connection cursor
 
     pub fn active_connection_id(&self) -> Option<String> {
         self.active.lock().unwrap().clone()
@@ -104,7 +104,7 @@ impl Host {
         self.registry.adapter(&id)
     }
 
-    // --- connections --------------------------------------------------------
+    // connections
 
     pub fn list_connections(&self) -> Vec<StoredConnection> {
         connections::load()

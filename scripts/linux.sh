@@ -31,14 +31,14 @@ out="$root/dist/linux"
 rm -rf "$out"
 mkdir -p "$out"
 
-# --- build ----------------------------------------------------------------
+# build
 rustup target add "$triple" >/dev/null 2>&1 || true
 cargo build --locked --release -p app -p tablesmcp --target "$triple"
 # The cargo bin target is `tablesdev`; it's installed as `tables` below.
 bin="target/$triple/release/tablesdev"
 strip "$bin" 2>/dev/null || true
 
-# --- staging tree (shared by tar.gz and the AppImage AppDir) ---------------
+# staging tree (shared by tar.gz and the AppImage AppDir)
 appdir="$out/AppDir"
 mkdir -p "$appdir/usr/bin" "$appdir/usr/share/applications" "$appdir/usr/share/pixmaps"
 cp "$bin" "$appdir/usr/bin/tables"
@@ -48,7 +48,7 @@ cp assets/tables.desktop "$appdir/usr/share/applications/tables.desktop"
 # 1024px master.
 cp assets/icon512.png "$appdir/usr/share/pixmaps/tables.png"
 
-# --- .tar.gz ---------------------------------------------------------------
+# .tar.gz
 stem="tables-$version-linux-$arch"
 stage="$out/$stem"
 mkdir -p "$stage"
@@ -58,12 +58,12 @@ tar -C "$out" -czf "$out/$stem.tar.gz" "$stem"
 rm -rf "$stage"
 echo "[linux] -> $stem.tar.gz"
 
-# --- .deb (cargo-deb) ------------------------------------------------------
+# .deb (cargo-deb)
 command -v cargo-deb >/dev/null 2>&1 || cargo install cargo-deb --locked
 cargo deb -p app --no-build --target "$triple" --output "$out/tables_${version}_${debarch}.deb"
 echo "[linux] -> tables_${version}_${debarch}.deb"
 
-# --- AppImage (linuxdeploy + appimagetool) ---------------------------------
+# AppImage (linuxdeploy + appimagetool)
 # Runners often lack FUSE, so extract-and-run the helper AppImages.
 export APPIMAGE_EXTRACT_AND_RUN=1
 tools="$out/tools"
@@ -80,7 +80,7 @@ chmod +x "$ld" "$ait"
 ARCH="$arch" "$ait" "$appdir" "$out/Tables-$version-$arch.AppImage"
 echo "[linux] -> Tables-$version-$arch.AppImage"
 
-# --- cleanup intermediates, leave only shippable artifacts -----------------
+# cleanup intermediates, leave only shippable artifacts
 rm -rf "$appdir" "$tools"
 echo "[linux] artifacts in dist/linux:"
 ls -1 "$out"
