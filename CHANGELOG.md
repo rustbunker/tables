@@ -2,6 +2,12 @@
 
 Notable changes to Tables. Versions follow [semver](https://semver.org).
 
+## 0.3.1 — 2026-09-29
+
+Built on guise-ui 1.9.1, which adds scrollbars to scrollable panes and makes
+Ctrl the shortcut key in text fields off macOS (select-all, clipboard, undo,
+word movement). Nothing else changed.
+
 ## 0.3.0 — 2026-09-09
 
 ### A compact workspace

@@ -44,7 +44,7 @@ dependencies = [
 
 [[package]]
 name = "ai"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "futures",
  "reqwest",
@@ -93,7 +93,7 @@ checksum = "2a4385e2e34eb35d6b3efe798b9eb88096925d87726c0798709bf56d9ed84af3"
 
 [[package]]
 name = "app"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "ai",
  "anyhow",
@@ -1360,7 +1360,7 @@ checksum = "be1e0bca6c3637f992fc1cc7cbc52a78c1ef6db076dbf1059c4323d6a2048376"
 
 [[package]]
 name = "db"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "async-trait",
  "bigdecimal",
@@ -2546,11 +2546,12 @@ checksum = "12101ecc8225ea6d675bc70263074eab6169079621c2186fe0c66590b2df9681"
 
 [[package]]
 name = "guise-ui"
-version = "1.7.0"
+version = "1.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1491c64a451d8c1edfb7410cc1880799ad223515e7f078affbce9e756c04ae3"
+checksum = "33644c16291a33b56a228e0d0a3726b4521a16a115c07b60a4975801077354ac"
 dependencies = [
  "gpui",
+ "image",
 ]
 
 [[package]]
@@ -2686,7 +2687,7 @@ dependencies = [
 
 [[package]]
 name = "host"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "anyhow",
  "chrono",
@@ -3499,7 +3500,7 @@ dependencies = [
 
 [[package]]
 name = "model"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "chrono",
  "serde",
@@ -5798,7 +5799,7 @@ checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
 name = "store"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "dirs 6.0.0",
  "keyring",
@@ -6070,7 +6071,7 @@ dependencies = [
 
 [[package]]
 name = "tablesmcp"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "db",
  "futures",
